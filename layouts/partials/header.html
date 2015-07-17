@@ -41,7 +41,7 @@
   {{ end }}
 </head>
 <body>
-    <header class="global-header"  style="background-image:url({{ if isset .Site.Params "header_image" }} {{html .Site.Params.header_image}} {{ else }} /images/bg.jpg {{ end }})">
+    <header class="global-header"  style="background-image:url({{ if isset .Params "header_image" }} {{html .Params.header_image}} {{ else if isset .Site.Params "header_image"}} {{ html .Site.Params.header_image }} {{ else }} /images/bg.jpg {{ end }})">
     <section class="header-text">
       <h1><a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a></h1>
       {{ with .Site.Params.subtitle }}
